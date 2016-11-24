@@ -3,10 +3,13 @@
 An example FTP server container running as a non-root user based on Fedora 25. This container is being developed - test it, play with it, but please don't use it in production.
 
 For convenience in the early development stage, the container has a hardcoded user:
-* username: adam
-* password: 1234
-* UID: 1001
-* GID: 1001
+
+```
+username: adam
+password: 1234
+UID: 1001
+GID: 1001
+```
 
 ## Running in Docker
 
