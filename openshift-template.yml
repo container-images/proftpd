@@ -1,0 +1,73 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: ftp-container
+  annotations:
+    description: First try to create a FTP container
+    tags: ftp
+labels:
+  template: ftp
+  group: ftp
+  version: 1.0.0
+objects:
+- kind: ImageStream
+  apiVersion: v1
+  metadata:
+    name: "proftpd-container"
+  spec:
+    dockerImageRepository: "asamalik/proftpd-container"
+  tags:
+    - name: "latest"
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: "proftpd-container"
+  spec:
+    selector:
+      name: "proftpd-container"
+    strategy:
+      type: "Rolling"
+    triggers:
+      - type: "ImageChange"
+        imageChangeParams:
+          automatic: true
+          containerNames:
+            - "proftpd-container"
+          from:
+            kind: "ImageStreamTag"
+            name: "proftpd-container:latest"
+    replicas: 1
+    template:
+      metadata:
+        name: "proftpd-container"
+        labels:
+          name: "proftpd-container"
+      spec:
+        containers:
+          - name: "proftpd-container"
+            image: "proftpd-container:latest"
+            ports:
+              - containerPort: 10021
+              - containerPort: 10100
+              - containerPort: 10101
+              - containerPort: 10102
+              - containerPort: 10103
+              - containerPort: 10104
+              - containerPort: 10105
+              - containerPort: 10106
+              - containerPort: 10107
+              - containerPort: 10108
+              - containerPort: 10109
+              - containerPort: 10110
+            volumeMounts:
+            #  - mountPath: /var/proftpd-container
+            #    name: var
+              - mountPath: /home/adam
+                name: data
+        volumes:
+        #  - name: var
+        #    emptyDir:
+        #      medium: Memory
+          - name: data
+            emptyDir: {}
