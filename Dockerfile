@@ -6,7 +6,7 @@ RUN dnf -y install proftpd
 RUN useradd --shell /bin/sh proftpd
 
 # Configuration
-ADD proftpd.conf /etc/proftpd.conf
+ADD files/proftpd.conf /etc/proftpd.conf
 RUN chown -R proftpd:proftpd /etc/proftpd.conf
 
 # Service irectories
@@ -14,8 +14,8 @@ RUN mkdir -p /var/proftpd-container && \
     mkdir -p /etc/proftpd-container
 
 # User account files
-ADD custom.passwd /etc/proftpd-container/custom.passwd
-ADD custom.group /etc/proftpd-container/custom.group
+ADD files/custom.passwd /etc/proftpd-container/custom.passwd
+ADD files/custom.group /etc/proftpd-container/custom.group
 
 # Service irectories
 RUN chown -R proftpd:proftpd /var/proftpd-container && \
