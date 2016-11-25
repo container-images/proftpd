@@ -1,0 +1,29 @@
+document: modulemd
+version: 1
+data:
+    summary: A first try of a proftpd module
+    description: An early-stage module of proftpd - a flexible, stable and highly-configurable FTP server
+    license:
+        module: [ MIT ]
+    dependencies:
+        buildrequires:
+            base-runtime: master
+        requires:
+            base-runtime: master
+    references:
+        community: https://fedoraproject.org/wiki/Modularity
+        documentation: https://github.com/container-images/proftpd
+        tracker: https://github.com/container-images/proftpd
+    profiles:
+        default:
+            rpms:
+                - proftpd
+    api:
+        rpms:
+            - proftpd
+    components:
+        rpms:
+            # TBD: more packages
+            proftpd:
+                rationale: Provides API for this module.
+                ref: f25
