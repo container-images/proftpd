@@ -18,12 +18,20 @@ data:
         default:
             rpms:
                 - proftpd
+        utils:
+            rpms:
+                - proftpd
+                - proftpd-utils
     api:
         rpms:
             - proftpd
+            - proftpd-utils
     components:
         rpms:
             # TBD: more packages
             proftpd:
                 rationale: Provides API for this module.
+                ref: f25
+            proftpd-utils:
+                rationale: Provides utilities like ftpasswd to manage users.
                 ref: f25
