@@ -1,8 +1,8 @@
 # FTP Server Container: proftpd
 
-An example FTP server container running as a non-root user based on Fedora 25. This container is being developed - test it, play with it, but please don't use it in production.
+An example **FTP server container** running as a **non-root user** based on **Fedora 25**. This container is being developed - test it, play with it, but please **don't use it in production**.
 
-For convenience in the early development stage, the container has a hardcoded user:
+For convenience in the **early development stage**, the container has a **hardcoded user**:
 
 ```
 username: adam
