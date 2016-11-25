@@ -11,6 +11,13 @@ UID: 1001
 GID: 1001
 ```
 
+Default ports are as follows:
+
+```
+command port: 10021 (changed from the default 21 to allow running as a non-root user)
+passive mode ports: 10100-10110
+```
+
 ## Running in Docker
 
 ```
