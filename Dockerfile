@@ -14,17 +14,17 @@ RUN mkdir -p /var/proftpd-container && \
     mkdir -p /etc/proftpd-container
 
 # User account files
-ADD files/custom.passwd /etc/proftpd-container/custom.passwd
-ADD files/custom.group /etc/proftpd-container/custom.group
+#ADD files/custom.passwd /etc/proftpd-container/custom.passwd
+#ADD files/custom.group /etc/proftpd-container/custom.group
 
 # Service irectories
 RUN chown -R proftpd:proftpd /var/proftpd-container && \
     chown -R proftpd:proftpd /etc/proftpd-container && \
-    chmod 700 /etc/proftpd-container/custom.passwd
+    chmod 700 /etc/proftpd-container
 
 # FTP volume
-VOLUME /ftp
+VOLUME ['/ftp', '/etc/proftpd-container']
 
 # And let's go!
 USER proftpd
-CMD exec proftpd --nodaemon
+CMD ls /etc/proftpd-container/ -l && ls /etc/proftpd-container/ -ld && proftpd --nodaemon

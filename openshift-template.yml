@@ -61,13 +61,33 @@ objects:
               - containerPort: 10109
               - containerPort: 10110
             volumeMounts:
+              - mountPath: /home/adam/
+                name: data
+              - mountPath: /etc/proftpd-container/
+                name: "etc-proftpd-container"
+                readOnly: true
             #  - mountPath: /var/proftpd-container
             #    name: var
-              - mountPath: /home/adam
-                name: data
         volumes:
+          - name: "etc-proftpd-container"
+            secret:
+              secretName: "secret-users"
+          #    items:
+          #      - key: custom.passwd
+          #        path: custom.passwd
+          #      - key: custom.group
+          #        path: custom.group
+          - name: data
+            emptyDir: {}
         #  - name: var
         #    emptyDir:
         #      medium: Memory
-          - name: data
-            emptyDir: {}
+#- kind: Secret
+#  apiVersion: v1
+#  metadata:
+#    name: secret-users
+#  data:
+#    custom.passwd: |
+#      adam:$1$dPvIFNX1$9dz7gbE3wqYQ7zaKb6sh.1:1001:1001::/ftp/adam:/bin/sh
+#    custom.group: |
+#      adam:x:1001:
