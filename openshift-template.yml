@@ -61,22 +61,19 @@ objects:
               - containerPort: 10109
               - containerPort: 10110
             volumeMounts:
-              - mountPath: /home/adam/
+              - mountPath: /ftp/adam
                 name: data
-              - mountPath: /etc/proftpd-container/
+              - mountPath: /etc/proftpd-container-workaround/
                 name: "etc-proftpd-container"
-                readOnly: true
-            #  - mountPath: /var/proftpd-container
-            #    name: var
         volumes:
           - name: "etc-proftpd-container"
             secret:
               secretName: "secret-users"
-          #    items:
-          #      - key: custom.passwd
-          #        path: custom.passwd
-          #      - key: custom.group
-          #        path: custom.group
+              items:
+                - key: custom.passwd
+                  path: custom.passwd
+                - key: custom.group
+                  path: custom.group
           - name: data
             emptyDir: {}
         #  - name: var

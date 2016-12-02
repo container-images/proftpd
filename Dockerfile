@@ -20,11 +20,14 @@ RUN mkdir -p /var/proftpd-container && \
 # Service irectories
 RUN chown -R proftpd:proftpd /var/proftpd-container && \
     chown -R proftpd:proftpd /etc/proftpd-container && \
-    chmod 700 /etc/proftpd-container
+    chmod 755 /etc/proftpd-container
 
 # FTP volume
-VOLUME ['/ftp', '/etc/proftpd-container']
+VOLUME ['/ftp', '/etc/proftpd-container-workaround']
 
 # And let's go!
 USER proftpd
-CMD ls /etc/proftpd-container/ -l && ls /etc/proftpd-container/ -ld && proftpd --nodaemon
+CMD mkdir /etc/proftpd-container/perm-workaround && \
+    cp /etc/proftpd-container-workaround/custom.* /etc/proftpd-container/perm-workaround/ && \
+    chmod -R 750 /etc/proftpd-container/perm-workaround && \
+    proftpd --nodaemon
