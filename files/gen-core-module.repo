@@ -1,0 +1,5 @@
+[gen-core-module]
+name=Packages from the gen-core
+baseurl=https://asamalik.fedorapeople.org/gen-core-rpms/
+enabled=1
+gpgcheck=0

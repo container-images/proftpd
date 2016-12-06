@@ -1,0 +1,5 @@
+[proftpd-module]
+name=A first try of a proftpd module
+baseurl=https://asamalik.fedorapeople.org/proftpd-module-repo/
+enabled=1
+gpgcheck=0

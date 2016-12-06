@@ -1,6 +1,10 @@
 FROM fedora:25
 
-RUN dnf -y install proftpd
+ADD files/proftpd-module.repo /etc/yum.repos.d/proftpd-module.repo
+ADD files/gen-core-module.repo /etc/yum.repos.d/gen-core-module.repo
+
+
+RUN dnf -y --disablerepo=* --enablerepo=proftpd-module --enablerepo=gen-core-module install proftpd
 
 # FTP user
 RUN useradd --shell /bin/sh proftpd

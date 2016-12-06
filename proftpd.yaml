@@ -28,8 +28,17 @@ data:
                 ref: f25
                 buildorder: 10
             perl-Crypt-Cracklib:
-                rationale: some build dependency
+                rationale: build dependency
                 ref: f25
             libmemcached:
-                rationale: some build dependency
+                rationale: build dependency
+                ref: f25
+            GeoIP:
+                rationale: runtime dependency
+                ref: f25
+            tcp_wrappers:
+                rationale: runtime dependency
+                ref: f25
+            libevent:
+                rationale: runtime dep for libmemcached
                 ref: f25
