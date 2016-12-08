@@ -106,7 +106,6 @@ glibc-langpack-ik
 glibc-langpack-is
 glibc-langpack-it
 glibc-langpack-iu
-glibc-langpack-iw
 glibc-langpack-ja
 glibc-langpack-ka
 glibc-langpack-kk

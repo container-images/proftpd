@@ -1,7 +1,6 @@
 generic-release
 GeoIP
 GeoIP-GeoLite-data
-glibc-langpack-iw
 libevent
 libmemcached-libs
 libmnl

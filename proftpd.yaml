@@ -27,18 +27,36 @@ data:
                 rationale: Provides API for this module.
                 ref: f25
                 buildorder: 10
-            perl-Crypt-Cracklib:
-                rationale: build dependency
-                ref: f25
-            libmemcached:
+            generic-release:
                 rationale: build dependency
                 ref: f25
             GeoIP:
+                rationale: build dependency
+                ref: f25
+            GeoIP-GeoLite-data:
+                rationale: build dependency
+                ref: f25
+            libevent:
+                rationale: runtime dependency
+                ref: f25
+            libmemcached:
+                rationale: runtime dependency
+                ref: f25
+            libmnl:
+                rationale: runtime dependency
+                ref: f25
+            libnetfilter_conntrack:
+                rationale: runtime dependency
+                ref: f25
+            libnfnetlink:
+                rationale: runtime dependency
+                ref: f25
+            libxkbcommon:
                 rationale: runtime dependency
                 ref: f25
             tcp_wrappers:
                 rationale: runtime dependency
                 ref: f25
-            libevent:
-                rationale: runtime dep for libmemcached
+            xkeyboard-config:
+                rationale: runtime dependency
                 ref: f25
